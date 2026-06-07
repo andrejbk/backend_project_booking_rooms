@@ -1,0 +1,30 @@
+[
+    {
+        "hotel_id": 1,
+        "title": "Standard",
+        "description": "An incredibly beautiful room.",
+        "price": 4000,
+        "quantity": 5
+    },
+    {
+        "hotel_id": 1,
+        "title": "Deluxe Plus",
+        "description": "The best hotel room.",
+        "price": 5500,
+        "quantity": 11
+    },
+    {
+        "hotel_id": 2,
+        "title": "Room for 2 people",
+        "description": "Comfortable and good location.",
+        "price": 2800,
+        "quantity": 17
+    },
+    {
+        "hotel_id": 3,
+        "title": "Room for 3 people",
+        "description": null,
+        "price": 3700,
+        "quantity": 8
+    }
+]
