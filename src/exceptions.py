@@ -14,6 +14,14 @@ class ObjectNotFoundException(BookedException):
     detail = "Object not found"
 
 
+class RoomNotFoundException(ObjectNotFoundException):
+    detail = "Room not found"
+
+
+class HotelNotFoundException(ObjectNotFoundException):
+    detail = "Hotel not found"
+
+
 class AllRoomsAreBookedException(BookedException):
     detail = "There are no free rooms left"
 

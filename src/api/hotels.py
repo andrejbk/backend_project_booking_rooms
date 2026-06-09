@@ -31,7 +31,10 @@ async def get_hotels(
 
 @router.get("/{hotel_id}")
 @cache(expire=10)
-async def get_hotel(hotel_id: int, db: DBDep):
+async def get_hotel(
+    hotel_id: int,
+    db: DBDep,
+):
     try:
         return await HotelService(db).get_hotel(hotel_id)
     except ObjectNotFoundException:
@@ -65,7 +68,11 @@ async def create_hotel(
 
 
 @router.put("/{hotel_id}")
-async def put_hotel(db: DBDep, hotel_id: int, hotel_data: HotelAdd):
+async def put_hotel(
+    db: DBDep,
+    hotel_id: int,
+    hotel_data: HotelAdd,
+):
     await HotelService(db).put_hotel(hotel_id, hotel_data)
     return {"status": "OK"}
 
@@ -73,14 +80,21 @@ async def put_hotel(db: DBDep, hotel_id: int, hotel_data: HotelAdd):
 @router.patch(
     "/{hotel_id}",
     summary="Partial update of hotel data",
-    description="<h1>Here we partially update the hotel data: you can send the title, or the location</h1>",
+    description="<h1>You can change only the hotel data that you need</h1>",
 )
-async def patch_hotel(db: DBDep, hotel_id: int, hotel_data: HotelPatch):
+async def patch_hotel(
+    db: DBDep,
+    hotel_id: int,
+    hotel_data: HotelPatch,
+):
     await HotelService(db).patch_hotel(hotel_id, hotel_data)
     return {"status": "OK"}
 
 
 @router.delete("/{hotel_id}")
-async def delete_hotel(db: DBDep, hotel_id: int):
+async def delete_hotel(
+    db: DBDep,
+    hotel_id: int,
+):
     await HotelService(db).delete_hotel(hotel_id)
     return {"status": "OK"}
