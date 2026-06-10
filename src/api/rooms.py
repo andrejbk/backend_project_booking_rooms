@@ -1,8 +1,6 @@
 from datetime import date
-
 from fastapi import APIRouter, Body, Query
 from fastapi_cache.decorator import cache
-
 from src.api.dependencies import DBDep
 from src.exceptions import (
     HotelNotFoundHTTPException,
@@ -85,4 +83,5 @@ async def delete_room(
     room_id: int,
 ):
     await RoomService(db).delete_room(hotel_id, room_id)
+
     return {"status": "OK"}

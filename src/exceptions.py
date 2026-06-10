@@ -26,8 +26,24 @@ class AllRoomsAreBookedException(BookedException):
     detail = "There are no free rooms left"
 
 
+class IncorrectTokenException(BookedException):
+    detail = "Invalid token"
+
+
 class ObjectAlreadyExistsException(BookedException):
     detail = "A similar object already exists"
+
+
+class EmailNotRegisteredException(BookedException):
+    detail = "No user with this email address is registered"
+
+
+class IncorrectPasswordException(BookedException):
+    detail = "Incorrect password"
+
+
+class UserAlreadyExistsException(BookedException):
+    detail = "The user already exists"
 
 
 def check_date_from_before_date_to(date_from: date, date_to: date) -> None:
@@ -54,3 +70,32 @@ class HotelNotFoundHTTPException(BookedHTTPException):
 class RoomNotFoundHTTPException(BookedHTTPException):
     status_code = 404
     detail = "Room not found"
+
+
+class AllRoomsAreBookedHTTPException(BookedHTTPException):
+    status_code = 409
+    detail = "There are no rooms available"
+
+
+class IncorrectTokenHTTPException(BookedHTTPException):
+    detail = "Invalid token"
+
+
+class EmailNotRegisteredHTTPException(BookedHTTPException):
+    status_code = 401
+    detail = "No user with this email address is registered"
+
+
+class UserEmailAlreadyExistsHTTPException(BookedHTTPException):
+    status_code = 409
+    detail = "A user with that email address already exists"
+
+
+class IncorrectPasswordHTTPException(BookedHTTPException):
+    status_code = 401
+    detail = "Incorrect password"
+
+
+class NoAccessTokenHTTPException(BookedHTTPException):
+    status_code = 401
+    detail = "You have not provided an access token"

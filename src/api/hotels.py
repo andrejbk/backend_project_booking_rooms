@@ -1,9 +1,6 @@
 from datetime import date
-
 from fastapi import Query, APIRouter, Body
 from fastapi_cache.decorator import cache
-
-
 from src.api.dependencies import PaginationDep, DBDep
 from src.exceptions import ObjectNotFoundException, HotelNotFoundHTTPException
 from src.schemas.hotels import HotelPatch, HotelAdd
@@ -64,6 +61,7 @@ async def create_hotel(
     ),
 ):
     hotel = await HotelService(db).add_hotel(hotel_data)
+
     return {"status": "OK", "data": hotel}
 
 
@@ -74,6 +72,7 @@ async def put_hotel(
     hotel_data: HotelAdd,
 ):
     await HotelService(db).put_hotel(hotel_id, hotel_data)
+
     return {"status": "OK"}
 
 
@@ -88,6 +87,7 @@ async def patch_hotel(
     hotel_data: HotelPatch,
 ):
     await HotelService(db).patch_hotel(hotel_id, hotel_data)
+
     return {"status": "OK"}
 
 
@@ -97,4 +97,5 @@ async def delete_hotel(
     hotel_id: int,
 ):
     await HotelService(db).delete_hotel(hotel_id)
+
     return {"status": "OK"}
