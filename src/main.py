@@ -19,7 +19,7 @@ from src.api.bookings import router as router_bookings
 from src.api.facilities import router as router_facilities
 from src.api.images import router as router_images
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 # from src.api.dependencies import get_db
 
@@ -57,4 +57,4 @@ app.include_router(router_bookings)
 app.include_router(router_images)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", reload=True)
