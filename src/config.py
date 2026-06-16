@@ -12,8 +12,8 @@ class Settings(BaseSettings):
     DB_USER: str
     DB_PASS: str
 
-    REDIS_HOST: str = "localhost"
-    REDIS_PORT: int = 6379
+    REDIS_HOST: str
+    REDIS_PORT: int
 
     @property
     def REDIS_URL(self):
