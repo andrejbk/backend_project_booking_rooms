@@ -99,3 +99,16 @@ class IncorrectPasswordHTTPException(BookedHTTPException):
 class NoAccessTokenHTTPException(BookedHTTPException):
     status_code = 401
     detail = "You have not provided an access token"
+
+
+class StaticHTTPException(HTTPException):
+    status_code = 500
+    detail = None
+
+    def __init__(self):
+        super().__init__(status_code=self.status_code, detail=self.detail)
+
+
+class PageNotFoundHTTPException(StaticHTTPException):
+    status_code = 404
+    detail = "Page not found"

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrey Babkov's demonstration project</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        h1 { margin-top: 0; color: var(--primary-color); }
+        p { line-height: 1.6; }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover { background-color: #357abd; }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BookingPro</h1>
+        <p>Developed a <b>RESTful API</b> for a hotel room booking platform</p>
+    </header>
+
+    <main>
+        <h2>About the project</h2>
+        <p>Designed and developed a <b>Python</b> backend application using the asynchronous <b>FastAPI</b> framework with <b>PostgreSQL</b> as the primary database. Implemented robust data validation, serialization, and schema management with <b>Pydantic</b>, and managed database access through <b>SQLAlchemy</b> ORM. Integrated <b>Redis</b> for high-performance caching and <b>Celery</b> for asynchronous background task processing. Ensured code quality through comprehensive testing with <b>Pytest</b> and static analysis, linting, and formatting with <b>Ruff</b>. Containerized the application using <b>Docker</b> and deployed it to a Linux <b>VPS</b>. Established an automated <b>GitLab CI/CD</b> pipeline to support continuous integration and deployment. Configured a custom domain and set up <b>Nginx</b> as a reverse proxy to handle incoming HTTP requests, SSL termination, and request routing to the application services.</p>
+        
+	<h2>GitHub</h2>        
+        <a href="https://github.com/andrejbk/backend_project_booking_rooms">https://github.com/andrejbk/backend_project_booking_rooms</a>
+
+        <h2>Demonstration in Swagger UI</h2>        
+        <p><a href="/docs" class="cta-button">Try it</a></p>
+    </main>
+
+    <footer>
+        <p>Created by the developer: Andrej Babkov</p>	
+    </footer>
+
+</body>
+</html>

@@ -1,15 +1,21 @@
 # noqa: E402
 import logging
+import os
 import sys
 from pathlib import Path
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+
 
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 import uvicorn
 
+
 sys.path.append(str(Path(__file__).parent.parent))
+
+from src.exceptions import PageNotFoundHTTPException
 
 from src.init import redis_manager
 from src.api.hotels import router as router_hotels
@@ -55,6 +61,19 @@ app.include_router(router_facilities)
 
 app.include_router(router_bookings)
 app.include_router(router_images)
+
+
+@app.get("/")
+async def index():
+    index_path = "src/static/html/index.html"
+    logging.info("Start page opens")
+
+    if not os.path.exists(index_path):
+        logging.error(f"Start page  {index_path} not found")
+        raise PageNotFoundHTTPException
+
+    return FileResponse(index_path)
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", reload=True)
